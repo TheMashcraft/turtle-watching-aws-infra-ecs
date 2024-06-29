@@ -4,5 +4,5 @@ resource "aws_ecr_repository" "main" {
 
 import {
   to = aws_ecr_repository.main
-  id = var.ecr_repository_name
+  id = "flask-app"
 }
