@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "app" {
   container_definitions = jsonencode([
     {
       name      = "flask-app"
-      image     = "${aws_ecr_repository.main.repository_url}:${var.docker_image_tag}"
+      image     = "${aws_ecrpublic_repository.main.repository_url}:${var.docker_image_tag}"
       essential = true
 
       portMappings = [
