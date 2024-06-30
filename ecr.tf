@@ -1,8 +1,9 @@
-resource "aws_ecr_repository" "main" {
-  name = var.ecr_repository_name
+resource "aws_ecrpublic_repository" "main" {
+  repository_name = var.ecr_repository_name
 }
 
+
 import {
-  to = aws_ecr_repository.main
+  to = aws_ecrpublic_repository.main
   id = "flask-app"
 }
