@@ -1,4 +1,4 @@
-name: Terraform Plan - ECS Infrastructure
+name: Terraform State RM - ECS Infrastructure
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    uses: TheMashcraft/terraform-reusable-workflows/.github/workflows/aws-terraform-plan.yml@main
+    uses: TheMashcraft/terraform-reusable-workflows/.github/workflows/aws-terraform-state-rm.yml@main
     with:
       terraform_dir: './'                   # Directory containing Terraform configuration
       terraform_version: '1.5.2'            # Version of Terraform to use
