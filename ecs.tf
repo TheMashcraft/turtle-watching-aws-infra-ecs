@@ -39,7 +39,7 @@ resource "aws_ecs_service" "main" {
   network_configuration {
     subnets         = aws_subnet.main[*].id
     security_groups = [aws_security_group.main.id]
-    assign_public_ip = true  # Ensure public IP assignment for internet access
+    #assign_public_ip = true  # Ensure public IP assignment for internet access
   }
 
   launch_type = "FARGATE"
