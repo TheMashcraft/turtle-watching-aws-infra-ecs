@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "app" {
   container_definitions = jsonencode([
     {
       name      = "flask-app"
-      image     = "${aws_ecrpublic_repository.main.repository_uri}:${var.docker_image_tag}"
+      image     = "${var.ecr_repository}:${var.docker_image_tag}"
       essential = true
 
       portMappings = [
@@ -39,7 +39,7 @@ resource "aws_ecs_service" "main" {
   network_configuration {
     subnets         = aws_subnet.main[*].id
     security_groups = [aws_security_group.main.id]
-    #assign_public_ip = true  # Ensure public IP assignment for internet access
+    assign_public_ip = true  # Ensure public IP assignment for internet access
   }
 
   launch_type = "FARGATE"

@@ -1,0 +1,20 @@
+name: Terraform Plan - ECS Infrastructure
+
+on:
+  push:
+    branches:
+      - state
+
+jobs:
+  deploy:
+    uses: TheMashcraft/terraform-reusable-workflows/.github/workflows/aws-terraform-plan.yml@main
+    with:
+      terraform_dir: './'                   # Directory containing Terraform configuration
+      terraform_version: '1.5.2'            # Version of Terraform to use
+      aws_iam_role: 'arn:aws:iam::747693303791:role/GithubActionsRole'  # AWS IAM role to assume
+      aws_region: 'us-east-1'               # AWS region for deployment
+      rm_resource: 'aws_ecrpublic_repository.main'         # Resource address to remove
+
+    permissions:
+      id-token: write
+      contents: read

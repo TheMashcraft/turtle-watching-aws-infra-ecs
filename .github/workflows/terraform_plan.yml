@@ -6,6 +6,7 @@ on:
       - main
       - destroy
       - plan/destroy
+      - state
 
 jobs:
   deploy:
