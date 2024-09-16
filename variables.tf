@@ -55,7 +55,7 @@ variable "container_port" {
 variable "desired_count" {
   description = "The number of desired tasks"
   type        = number
-  default     = 
+  default     = 3
 }
 
 variable "docker_image_tag" {
