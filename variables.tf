@@ -22,6 +22,12 @@ variable "ecr_repository_name" {
   default     = "flask-app"
 }
 
+variable "ecr_repository" {
+  description = "The name of the ECR repository uri"
+  type        = string
+  default     = "public.ecr.aws/c5j2e5k7/flask-app"
+}
+
 variable "cluster_name" {
   description = "The name of the ECS cluster"
   type        = string
@@ -49,7 +55,7 @@ variable "container_port" {
 variable "desired_count" {
   description = "The number of desired tasks"
   type        = number
-  default     = 1
+  default     = 3
 }
 
 variable "docker_image_tag" {
